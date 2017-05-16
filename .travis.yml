@@ -1,0 +1,43 @@
+sudo: required
+
+dist: trusty
+
+env:
+  - TEST_SUITE=lint
+  - TEST_SUITE=unit
+  - TEST_SUITE=e2e
+
+language: node_js
+
+node_js: stable
+
+cache:
+  directories:
+    - node_modules
+
+before_install:
+  - export CHROME_BIN=/usr/bin/google-chrome; fi
+  - export DISPLAY=:99.0; fi
+  - sh  -e /etc/init.d/xvfb start; fi
+  - sudo apt-get update; fi
+  - sudo apt-get install  -y libappindicator1 fonts-liberation; fi
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb; fi
+  - sudo dpkg -i google-chrome*.deb; fi
+
+script:
+  - jdk_switcher use oraclejdk8; fi
+  - "npm run lint"
+  - "npm run unit"
+  - "npm run e2e"
+
+before_deploy:
+  - npm run build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist
+  on:
+    branch: master
+
