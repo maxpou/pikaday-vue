@@ -13,10 +13,12 @@
 * `minDate`: earliest date that can be selected
 * `maxDate`: latest date that can be selected
 * `defaultDate`: default date set (should be a Date object)
+* `setDefaultDate`: make the `defaultDate` the initial selected value
 * `firstDay`: first day of the week (0: Sunday, 1: Monday, etc) (default: 1)
 * `format`: the default output format ([examples](https://momentjs.com/#format-dates)) (default: MMMM Do YYYY)
 * `numberOfMonths`: number of calendars
 * `calendarIcon`: set the icon on the div (default: true)
+* `disableWeekends` disallow selection of Saturdays or Sundays (default: false)
 
 **Event:**
 

@@ -14,6 +14,10 @@ export default {
     minDate: {},
     maxDate: {},
     defaultDate: {},
+    setDefaultDate: {
+      default: false,
+      type: Boolean
+    },
     firstDay: {
       default: 1,
       type: Number
@@ -25,6 +29,14 @@ export default {
     format: {
       default: 'MMMM Do YYYY',
       type: String
+    },
+    showMonthAfterYear: {
+      default: false,
+      type: Boolean
+    },
+    disableWeekends: {
+      default: false,
+      type: Boolean
     },
     calendarIcon: {
       default: true,
@@ -62,7 +74,9 @@ export default {
       firstDay: this.firstDay,
       defaultDate: this.defaultDate,
       numberOfMonths: this.numberOfMonths,
-      setDefaultDate: true,
+      disableWeekends: this.disableWeekends,
+      setDefaultDate: this.setDefaultDate,
+      showMonthAfterYear: this.showMonthAfterYear,
       onSelect () {
         vm.currentDate = this.getMoment().toDate()
         vm.$emit('onSelect', vm.currentDate)
