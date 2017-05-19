@@ -5,6 +5,7 @@
 
 > A Vue.js wrapper for [Pikaday](https://github.com/dbushell/Pikaday)
 
+A demo is available here: [www.maxpou.fr/pikaday-vue/](http://www.maxpou.fr/pikaday-vue/)
 
 ## Configuration
 
@@ -50,3 +51,5 @@ npm test
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+For commits messages, please follow the [gitmoji guideline](https://gitmoji.carloscuesta.me/)
+
