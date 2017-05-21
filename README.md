@@ -20,10 +20,25 @@ A demo is available here: [www.maxpou.fr/pikaday-vue/](http://www.maxpou.fr/pika
 * `numberOfMonths`: number of calendars
 * `calendarIcon`: set the icon on the div (default: true)
 * `disableWeekends` disallow selection of Saturdays or Sundays (default: false)
+* `i18n`: Internationalization (see below)
 
 **Event:**
 
 * `onSelect(dateSelected)`: raise when date change
+
+**Internationalization:**
+
+Your i18n property object must follow the following structure:
+
+```js
+{
+  previousMonth: 'Previous Month',
+  nextMonth: 'Next Month',
+  months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+  weekdaysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+},
+```
 
 ## Contributing
 
@@ -53,3 +68,7 @@ npm test
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 For commits messages, please follow the [gitmoji guideline](https://gitmoji.carloscuesta.me/)
 
+
+## Publish new version
+
+Todo: test this `vue build ./src/components/Pikaday.vue --config ./build.config.js --dist ./dist-lib/ --prod --lib`

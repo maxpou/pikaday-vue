@@ -38,6 +38,16 @@ export default {
       default: false,
       type: Boolean
     },
+    i18n: {
+      default: {
+        previousMonth: 'Previous Month',
+        nextMonth: 'Next Month',
+        months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        weekdaysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+      },
+      type: Object
+    },
     calendarIcon: {
       default: true,
       type: Boolean
@@ -77,11 +87,13 @@ export default {
       disableWeekends: this.disableWeekends,
       setDefaultDate: this.setDefaultDate,
       showMonthAfterYear: this.showMonthAfterYear,
+      i18n: this.i18n,
       onSelect () {
         vm.currentDate = this.getMoment().toDate()
         vm.$emit('onSelect', vm.currentDate)
       }
     })
+    console.log(this.i18n)
     this.currentDate = this.defaultDate
   }
 }
