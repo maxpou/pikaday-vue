@@ -2,19 +2,18 @@
   <div id="app">
     <demo-simple></demo-simple>
     <hr>
-    <demo-advanced></demo-advanced>
   </div>
 </template>
 
 <script>
-import DemoSimple from './components/example/Simple'
-import DemoAdvanced from './components/example/Advanced'
+import DemoSimple from './components/Simple'
+// import DemoAdvanced from './components/Advanced' <demo-advanced></demo-advanced>
 
 export default {
   name: 'app',
   components: {
-    DemoSimple,
-    DemoAdvanced
+    DemoSimple
+    // DemoAdvanced
   }
 }
 </script>

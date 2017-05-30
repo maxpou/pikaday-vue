@@ -22,17 +22,17 @@ before_install:
 script:
   - jdk_switcher use oraclejdk8
   - "npm run lint"
-  # - "npm run unit"
+  - "cd demo && npm install"
   - "npm run e2e"
 
 before_deploy:
-  - npm run build-demo
+  - cd demo && npm run build
 
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  local_dir: dist
+  local_dir: "demo/dist"
   on:
     branch: master
 

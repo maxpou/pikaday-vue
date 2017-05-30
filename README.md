@@ -5,7 +5,7 @@
 
 > A Vue.js wrapper for [Pikaday](https://github.com/dbushell/Pikaday)
 
-A demo is available here: [www.maxpou.fr/pikaday-vue/](http://www.maxpou.fr/pikaday-vue/)
+Demo and examples are available here: [www.maxpou.fr/pikaday-vue/](http://www.maxpou.fr/pikaday-vue/)
 
 ## Configuration
 
@@ -25,31 +25,16 @@ A demo is available here: [www.maxpou.fr/pikaday-vue/](http://www.maxpou.fr/pika
 
 * `onSelect(dateSelected)`: raise when date change
 
-## Contributing
+## Setting up the demo locally
 
-``` bash
-# install dependencies
+```bash
+cd demo
 npm install
-
-# serve with hot reload at localhost:8080
 npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-For commits messages, please follow the [gitmoji guideline](https://gitmoji.carloscuesta.me/)
+See [demo/README.md](demo/README.md) for more details.
 
+## Contributing
+
+For commits messages, please follow the [gitmoji guideline](https://gitmoji.carloscuesta.me/).

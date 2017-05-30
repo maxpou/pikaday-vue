@@ -53,8 +53,7 @@ export default {
 </template>
 
 <script>
-import Pikaday from '../Pikaday'
-// import Pikaday from '../../dist-lib/Pikaday'
+import Pikaday from '../../../src/components/Pikaday'
 import moment from 'moment'
 
 export default {

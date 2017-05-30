@@ -15,8 +15,7 @@
 </template>
 
 <script>
-import Pikaday from '../Pikaday'
-// import Pikaday from '../../dist-lib/Pikaday'
+import Pikaday from '../../../src/components/Pikaday'
 
 export default {
   name: 'app',
