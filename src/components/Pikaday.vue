@@ -1,9 +1,7 @@
 <template>
   <input
     type="text"
-    ref="node"
-    class="date-picker"
-    v-bind:class="{ 'calendar-icon': calendarIcon }">
+    ref="node">
 </template>
 
 <script>
@@ -36,10 +34,6 @@ export default {
     },
     disableWeekends: {
       default: false,
-      type: Boolean
-    },
-    calendarIcon: {
-      default: true,
       type: Boolean
     },
     options: {
@@ -93,22 +87,3 @@ export default {
 </script>
 
 <style src="pikaday/css/pikaday.css"></style>
-<style scoped>
-input.date-picker.calendar-icon {
-  background-image: url(/static/calendar.png);
-  background-repeat: no-repeat;
-  background-position: right;
-}
-.date-picker {
-  width: 150px;
-  margin-right: 0;
-  margin-left: 0;
-  border: 1px solid #ccc;
-  padding: 9px 0;
-  line-height: 1.1;
-  color: #444;
-  border-radius: 3px;
-  text-indent: 13px;
-  cursor: pointer;
-}
-</style>

@@ -8,7 +8,6 @@
         v-bind:firstDay="0"
         v-bind:format="'LL'"
         v-bind:numberOfMonths="2"
-        v-bind:calendarIcon="false"
         v-bind:options="opts"
         v-on:onSelect="changeDate($event)"
       ></pikaday>
@@ -25,7 +24,6 @@ v-bind:defaultDate="datePlusTenDay"
 v-bind:firstDay="1"
 v-bind:format="'LL'"
 v-bind:numberOfMonths="1"
-v-bind:calendarIcon=true
 v-on:onSelect="changeDate($event)"
 >&lt;/pikaday&gt;
 
