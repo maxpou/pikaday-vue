@@ -41,6 +41,10 @@ export default {
     calendarIcon: {
       default: true,
       type: Boolean
+    },
+    options: {
+      default: () => { return {} },
+      type: Object
     }
   },
   data () {
@@ -66,7 +70,7 @@ export default {
   mounted () {
     this.htmlNode = this.$refs.node
     let vm = this
-    this.picker = new Pikaday({
+    const options = Object.assign({}, {
       field: this.htmlNode,
       format: this.format,
       minDate: this.minDate,
@@ -81,7 +85,8 @@ export default {
         vm.currentDate = this.getMoment().toDate()
         vm.$emit('onSelect', vm.currentDate)
       }
-    })
+    }, this.options)
+    this.picker = new Pikaday(options)
     this.currentDate = this.defaultDate
   }
 }

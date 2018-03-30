@@ -9,6 +9,7 @@
         v-bind:format="'LL'"
         v-bind:numberOfMonths="2"
         v-bind:calendarIcon="false"
+        v-bind:options="opts"
         v-on:onSelect="changeDate($event)"
       ></pikaday>
     </div>
@@ -65,7 +66,11 @@ export default {
   data () {
     return {
       printedDate: moment().add(10, 'days').toDate(),
-      datePlusTenDay: moment().add(10, 'days').toDate()
+      datePlusTenDay: moment().add(10, 'days').toDate(),
+      opts: {
+        format: 'DD-MM-YYYY',
+        yearRange: [1900, new Date().getFullYear()]
+      }
     }
   },
   methods: {
