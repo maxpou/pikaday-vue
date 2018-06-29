@@ -83,7 +83,7 @@ export default {
       showMonthAfterYear: this.showMonthAfterYear,
       onSelect () {
         vm.currentDate = this.getMoment().toDate()
-        vm.$emit('onSelect', {value: vm.currentDate, ref: this.$refs.node})
+        vm.$emit('onSelect', {value: vm.currentDate, ref: vm.$refs.node})
       }
     }, this.options)
     this.picker = new Pikaday(options)
