@@ -65,6 +65,9 @@ export default {
       if (this.currentDate > newMaxDate) {
         this.picker.setDate(newMaxDate)
       }
+    },
+    defaultDate (newDate) {
+      this.picker.setDefaultDate(newDate)
     }
   },
   mounted () {

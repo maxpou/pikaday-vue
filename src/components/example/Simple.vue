@@ -3,7 +3,7 @@
     <h2>Demo config simple</h2>
 
     <div class="element">
-      <pikaday></pikaday>
+      <pikaday :default-date="new Date(1984,3,27)" :set-default-date="true"></pikaday>
     </div>
 
     <pre>
