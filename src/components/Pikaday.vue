@@ -10,6 +10,7 @@ import Pikaday from 'pikaday'
 
 export default {
   props: {
+    label: '',
     minDate: {},
     maxDate: {},
     defaultDate: {},
@@ -65,9 +66,6 @@ export default {
       if (this.currentDate > newMaxDate) {
         this.picker.setDate(newMaxDate)
       }
-    },
-    defaultDate (newDate) {
-      this.picker.setDefaultDate(newDate)
     }
   },
   mounted () {
@@ -84,13 +82,14 @@ export default {
       disableWeekends: this.disableWeekends,
       setDefaultDate: this.setDefaultDate,
       showMonthAfterYear: this.showMonthAfterYear,
-      onSelect () {
-        vm.currentDate = this.getMoment().toDate()
+      onSelect (date) {
+        vm.currentDate = date
         vm.$emit('onSelect', {value: vm.currentDate, ref: vm.$refs.node})
       }
     }, this.options)
     this.picker = new Pikaday(options)
     this.currentDate = this.defaultDate
+    this.picker.setDate(this.currentDate)
   }
 }
 </script>

@@ -16,7 +16,6 @@
 
 <script>
 import Pikaday from '../Pikaday'
-// import Pikaday from '../../dist-lib/Pikaday'
 
 export default {
   name: 'app',

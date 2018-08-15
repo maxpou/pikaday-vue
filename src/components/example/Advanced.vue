@@ -53,8 +53,6 @@ export default {
 
 <script>
 import Pikaday from '../Pikaday'
-// import Pikaday from '../../dist-lib/Pikaday'
-import moment from 'moment'
 
 export default {
   name: 'app',
@@ -62,9 +60,11 @@ export default {
     Pikaday
   },
   data () {
+    const datePlusTen = new Date()
+    datePlusTen.setDate(datePlusTen.getDate() + 10)
     return {
-      printedDate: moment().add(10, 'days').toDate(),
-      datePlusTenDay: moment().add(10, 'days').toDate(),
+      printedDate: datePlusTen,
+      datePlusTenDay: datePlusTen,
       opts: {
         format: 'DD-MM-YYYY',
         yearRange: [1900, new Date().getFullYear()]
