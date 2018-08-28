@@ -1,8 +1,13 @@
 <template>
-  <input
-    type="text"
-    @input="updateValue"
-    ref="node">
+  <div class="pika-input-holder">
+    <input
+      type="text"
+      @input="updateValue"
+      v-model="value"
+      ref="node">
+    <span class="pika-input-placeholder" :class="{'pika-input-placeholder--hidden' : this.value !== ''}">{{displayFormat}}</span>
+  </div>
+
 </template>
 
 <script>
@@ -46,9 +51,12 @@ export default {
   data () {
     return {
       htmlNode: {},
+      value: '',
+      displayFormat: '',
       currentDate: {}
     }
   },
+
   methods: {
     updateValue (val) {
       this.$emit('input', {value: val, ref: this.$refs.node})
@@ -87,11 +95,35 @@ export default {
         vm.$emit('onSelect', {value: vm.currentDate, ref: vm.$refs.node})
       }
     }, this.options)
+    this.displayFormat = options.format
     this.picker = new Pikaday(options)
     this.currentDate = this.defaultDate
     this.picker.setDate(this.currentDate)
+    this.value = this.htmlNode.value
   }
 }
 </script>
 
 <style src="pikaday/css/pikaday.css"></style>
+<style>
+  .pika-input-holder {
+    position: relative;
+  }
+
+  .pika-input-placeholder {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+  }
+
+  .pika-input-placeholder--hidden {
+    display: none;
+  }
+
+  input:focus + .pika-input-placeholder:not(.pika-input-placeholder--hidden) {
+    display: block;
+  }
+</style>
