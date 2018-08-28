@@ -1,9 +1,13 @@
 <template>
-  <input
-    type="text"
-    ref="node"
-    class="date-picker"
-    v-bind:class="{ 'calendar-icon': calendarIcon }">
+  <div class="pika-input-holder">
+    <input
+      type="text"
+      @input="updateValue"
+      v-model="value"
+      ref="node">
+    <span class="pika-input-placeholder" :class="{'pika-input-placeholder--hidden' : this.value !== ''}">{{displayFormat}}</span>
+  </div>
+
 </template>
 
 <script>
@@ -11,6 +15,7 @@ import Pikaday from 'pikaday'
 
 export default {
   props: {
+    label: '',
     minDate: {},
     maxDate: {},
     defaultDate: {},
@@ -38,15 +43,23 @@ export default {
       default: false,
       type: Boolean
     },
-    calendarIcon: {
-      default: true,
-      type: Boolean
+    options: {
+      default: () => { return {} },
+      type: Object
     }
   },
   data () {
     return {
       htmlNode: {},
+      value: '',
+      displayFormat: '',
       currentDate: {}
+    }
+  },
+
+  methods: {
+    updateValue (val) {
+      this.$emit('input', {value: val, ref: this.$refs.node})
     }
   },
   watch: {
@@ -66,7 +79,7 @@ export default {
   mounted () {
     this.htmlNode = this.$refs.node
     let vm = this
-    this.picker = new Pikaday({
+    const options = Object.assign({}, {
       field: this.htmlNode,
       format: this.format,
       minDate: this.minDate,
@@ -77,33 +90,40 @@ export default {
       disableWeekends: this.disableWeekends,
       setDefaultDate: this.setDefaultDate,
       showMonthAfterYear: this.showMonthAfterYear,
-      onSelect () {
-        vm.currentDate = this.getMoment().toDate()
-        vm.$emit('onSelect', vm.currentDate)
+      onSelect (date) {
+        vm.currentDate = date
+        vm.$emit('onSelect', {value: vm.currentDate, ref: vm.$refs.node})
       }
-    })
+    }, this.options)
+    this.displayFormat = options.format
+    this.picker = new Pikaday(options)
     this.currentDate = this.defaultDate
+    this.picker.setDate(this.currentDate)
+    this.value = this.htmlNode.value
   }
 }
 </script>
 
 <style src="pikaday/css/pikaday.css"></style>
-<style scoped>
-input.date-picker.calendar-icon {
-  background-image: url(/static/calendar.png);
-  background-repeat: no-repeat;
-  background-position: right;
-}
-.date-picker {
-  width: 150px;
-  margin-right: 0;
-  margin-left: 0;
-  border: 1px solid #ccc;
-  padding: 9px 0;
-  line-height: 1.1;
-  color: #444;
-  border-radius: 3px;
-  text-indent: 13px;
-  cursor: pointer;
-}
+<style>
+  .pika-input-holder {
+    position: relative;
+  }
+
+  .pika-input-placeholder {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+  }
+
+  .pika-input-placeholder--hidden {
+    display: none;
+  }
+
+  input:focus + .pika-input-placeholder:not(.pika-input-placeholder--hidden) {
+    display: block;
+  }
 </style>

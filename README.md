@@ -5,6 +5,8 @@
 
 > A Vue.js wrapper for [Pikaday](https://github.com/dbushell/Pikaday)
 
+This is a fork of [github.com/maxpou/pikaday-vue](https://github.com/maxpou/pikaday-vue), 
+but without the moment dependency.
 A demo is available here: [www.maxpou.fr/pikaday-vue/](http://www.maxpou.fr/pikaday-vue/)
 
 ## Configuration

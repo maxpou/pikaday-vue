@@ -8,7 +8,7 @@
         v-bind:firstDay="0"
         v-bind:format="'LL'"
         v-bind:numberOfMonths="2"
-        v-bind:calendarIcon="false"
+        v-bind:options="opts"
         v-on:onSelect="changeDate($event)"
       ></pikaday>
     </div>
@@ -24,7 +24,6 @@ v-bind:defaultDate="datePlusTenDay"
 v-bind:firstDay="1"
 v-bind:format="'LL'"
 v-bind:numberOfMonths="1"
-v-bind:calendarIcon=true
 v-on:onSelect="changeDate($event)"
 >&lt;/pikaday&gt;
 
@@ -54,8 +53,6 @@ export default {
 
 <script>
 import Pikaday from '../Pikaday'
-// import Pikaday from '../../dist-lib/Pikaday'
-import moment from 'moment'
 
 export default {
   name: 'app',
@@ -63,9 +60,15 @@ export default {
     Pikaday
   },
   data () {
+    const datePlusTen = new Date()
+    datePlusTen.setDate(datePlusTen.getDate() + 10)
     return {
-      printedDate: moment().add(10, 'days').toDate(),
-      datePlusTenDay: moment().add(10, 'days').toDate()
+      printedDate: datePlusTen,
+      datePlusTenDay: datePlusTen,
+      opts: {
+        format: 'DD-MM-YYYY',
+        yearRange: [1900, new Date().getFullYear()]
+      }
     }
   },
   methods: {
