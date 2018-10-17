@@ -5,7 +5,7 @@
 
 > A Vue.js wrapper for [Pikaday](https://github.com/dbushell/Pikaday)
 
-A demo is available here: [www.maxpou.fr/pikaday-vue/](http://www.maxpou.fr/pikaday-vue/)
+A demo is available here: [maxpou.github.io/pikaday-vue/](https://maxpou.github.io/pikaday-vue/)
 
 ## Configuration
 
